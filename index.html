@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Incremental Game</title>
+  </head>
+  <body>
+    <div id="game">
+      <p>Points: <span id="points">0</span></p>
+      <p>Level: <span id="level">1</span></p>
+      <p>Click Multiplier: <span id="click-multiplier">1</span></p>
+      <button id="click-button">Click Me!</button>
+      <button id="upgrade-click-multiplier">Upgrade Click Multiplier</button>
+      <button id="upgrade-level">Upgrade Level</button>
+    </div>
+
+    <script>
+      const game = new IncrementalGame();
+
+      const pointsElement = document.getElementById("points");
+      const levelElement = document.getElementById("level");
+      const clickMultiplierElement = document.getElementById("click-multiplier");
+
+      document.getElementById("click-button").addEventListener("click", () => {
+        game.clickButton();
+        pointsElement.textContent = game.points;
+      });
+
+      document.getElementById("upgrade-click-multiplier").addEventListener("click", () => {
+        game.upgradeClickMultiplier();
+        clickMultiplierElement.textContent = game.clickMultiplier;
+      });
+
+      document.getElementById("upgrade-level").addEventListener("click", () => {
+        game.upgradeLevel();
+        levelElement.textContent = game.level;
+      });
+    </script>
+  </body>
+</html>
